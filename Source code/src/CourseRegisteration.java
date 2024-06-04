@@ -291,13 +291,14 @@ public class CourseRegisteration {
                 System.out.println("\t\t1. Display lecturer information");
                 System.out.println("\t\t2. Edit lecturer profile");
                 System.out.println("\t\t3. Register a course");
-                System.out.println("\t\t4. Back to login page");
+                System.out.println("\t\t4. Generate course registration slip");
+                System.out.println("\t\t5. Back to login page");
 
                 System.out.print("\n\n\t\tPlease enter your option: ");
                 choice = input.nextInt();
                 input.nextLine(); // clear buffer
 
-                if(choice == 4) {
+                if(choice == 5) {
 
                     login(stud,lect,cour);
                     input.close();
@@ -305,7 +306,7 @@ public class CourseRegisteration {
 
                 }
 
-            } while(choice != 1 && choice != 2 && choice != 3);
+            } while(choice != 1 && choice != 2 && choice != 3 && choice != 4);
 
             switch(choice) {
 
@@ -391,7 +392,7 @@ public class CourseRegisteration {
                 
                 case 3:
 
-                    System.out.printf("\n\n\t%-4s%-8s%-10s%-13s%-20s\n","No","Name","Code","Credit hour","Slot(s)");
+                    System.out.printf("\n\n\t\t%-4s%-8s%-10s%-13s%-20s\n","No","Name","Code","Credit hour","Slot(s)");
                     System.out.printf("\t\t%-4s%-8s%-10s%-13s%-20s\n","--","----","----","-----------","-------");
 
                     if(cour.size() == 0) {
@@ -424,9 +425,13 @@ public class CourseRegisteration {
 
                     break;
 
+                case 4:
+                    Slip.generateSlip(lec);
+                    break;
+
             }
 
-        } while(choice == 1 || choice == 2 || choice == 3);
+        } while(choice == 1 || choice == 2 || choice == 3 || choice == 4);
 
         input.close();
 
@@ -485,13 +490,14 @@ public class CourseRegisteration {
                 System.out.println("\t\t1. Display student information");
                 System.out.println("\t\t2. Edit student profile");
                 System.out.println("\t\t3. Register a course");
-                System.out.println("\t\t4. Back to login page");
+                System.out.println("\t\t4. Generate course registration slip");
+                System.out.println("\t\t5. Back to login page");
 
                 System.out.print("\n\n\t\tPlease enter your option: ");
                 choice = input.nextInt();
                 input.nextLine(); // clear buffer
 
-                if(choice == 4) {
+                if(choice == 5) {
 
                     login(stud,lect,cour);
                     input.close();
@@ -499,7 +505,7 @@ public class CourseRegisteration {
 
                 }
 
-            } while(choice != 1 && choice != 2 && choice != 3);
+            } while(choice != 1 && choice != 2 && choice != 3 && choice != 4);
 
             switch(choice) {
 
@@ -616,10 +622,14 @@ public class CourseRegisteration {
                     }
 
                     break;
+                
+                case 4:
+                    Slip.generateSlip(stu);
+                    break;
 
             }
 
-        } while(choice == 1 || choice == 2 || choice == 3);
+        } while(choice == 1 || choice == 2 || choice == 3 || choice == 4);
 
         input.close();
 

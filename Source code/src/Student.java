@@ -56,4 +56,8 @@ public class Student extends User{
         }
         
     }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
 }

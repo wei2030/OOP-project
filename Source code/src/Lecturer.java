@@ -63,4 +63,8 @@ public class Lecturer extends User {
         }
         
     }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
 }
