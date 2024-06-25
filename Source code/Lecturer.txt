@@ -1,2 +1,2 @@
-lecturer@utm.my DR. YAZID 50 L001 N28A-423 Johor Bahru
-lecturer@utm.my DR. SOH 40 L002 N28A-501 Johor Bahru
+lecturer1@utm.my DR. YAZID 50 L001 N28A-423 Johor Bahru
+lecturer2@utm.my DR. SOH 40 L002 N28A-501 Johor Bahru

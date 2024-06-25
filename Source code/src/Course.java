@@ -1,3 +1,7 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+
 public class Course {
     private String name;
     private String code;
@@ -38,8 +42,49 @@ public class Course {
 
     @Override
     public String toString() {
-        return ("Name: " + name + "\n\t\t\tCourse code: " + code + "\n\t\t\tCredit hour: " + creditHour + 
-                "\n\t\t\tDay: " + slot.getDay() + "\n\t\t\tTime: " + slot.getTime() + "\n\t\t\tLecturer: " + getLecturer());
+        StringBuilder sb = new StringBuilder();
+        sb.append("\tName: ").append(name).append("\n");
+        sb.append("\t\t\tCourse code: ").append(code).append("\n");
+        sb.append("\t\t\tCredit hour: ").append(creditHour).append("\n");
+        sb.append("\t\t\tDay: ").append(slot.getDay()).append("\n");
+        sb.append("\t\t\tTime: ").append(slot.getTime()).append("\n");
+        sb.append("\t\t\tLecturer: ").append(getLecturer());
+        return sb.toString();
+    }
+
+    public String toString1() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\tName: ").append(name).append("\n");
+        sb.append("\tCourse code: ").append(code).append("\n");
+        sb.append("\tCredit hour: ").append(creditHour).append("\n");
+        sb.append("\tDay: ").append(slot.getDay()).append("\n");
+        sb.append("\tTime: ").append(slot.getTime()).append("\n");
+        sb.append("\tLecturer: ").append(getLecturer());
+        return sb.toString();
+    }
+
+    public static void displayAllCoursesInFrame(ArrayList<Course> courses) {
+        JFrame frame = new JFrame("All Courses Information");
+        frame.setSize(500, 400);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JPanel panel = new JPanel(new BorderLayout());
+
+        JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 20));
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < courses.size(); i++) {
+            sb.append("[").append(i + 1).append("] ").append(courses.get(i).toString1()).append("\n\n");
+        }
+        textArea.setText(sb.toString());
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        frame.add(panel);
+        frame.setVisible(true);
     }
 
     public String getSlot() {

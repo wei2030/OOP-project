@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
 
 public class Lecturer extends User {
     private String address;
@@ -44,24 +46,39 @@ public class Lecturer extends User {
     }
 
     public void displayInformation() {
-        System.out.println("\n\n\t\tName       : " + name);
-        System.out.println("\t\tAge        : " + age);
-        System.out.println("\t\tEmail      : " + email);
-        System.out.println("\t\tAddress    : " + address);
-        System.out.println("\t\tStaff ID.  : " + lectID);
-        System.out.println("\t\tRoom no.   : " + lectRoom);
+        JFrame frame = new JFrame("Lecturer Information");
+        frame.setSize(600, 400);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        if(courses.size() > 0) {
-            System.out.println("\n\t\tList of course(s) registered");
-            System.out.println("\t\t------------------------------");
+        JPanel panel = new JPanel(new BorderLayout());
 
-            for(int i=0; i<courses.size(); i++) {
-                System.out.print("\t\t[" + (i+1) + "]\t");
-                System.out.println(courses.get(i));
-                System.out.println();                
+        JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 20));
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name       : ").append(name).append("\n");
+        sb.append("Age        : ").append(age).append("\n");
+        sb.append("Email      : ").append(email).append("\n");
+        sb.append("Address    : ").append(address).append("\n");
+        sb.append("Staff ID.  : ").append(lectID).append("\n");
+        sb.append("Room no.   : ").append(lectRoom).append("\n");
+
+        if (courses.size() > 0) {
+            sb.append("\nList of course(s) registered\n");
+            sb.append("------------------------------\n");
+
+            for (int i = 0; i < courses.size(); i++) {
+                sb.append("[").append(i + 1).append("]").append(courses.get(i).toString1()).append("\n\n");
             }
         }
-        
+
+        textArea.setText(sb.toString());
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        frame.add(panel);
+        frame.setVisible(true);        
     }
 
     public ArrayList<Course> getCourses() {

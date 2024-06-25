@@ -1,8 +1,8 @@
-import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class CourseRegisteration {
 
@@ -56,13 +56,7 @@ public class CourseRegisteration {
                         break;
 
                     } else {
-
-                        for(int i=0; i<cour.size(); i++) {
-                            System.out.print("\t\t[" + (i) + "]\t");
-                            System.out.println(cour.get(i));
-                            System.out.println();
-                        }
-
+                        Course.displayAllCoursesInFrame(cour);
                     }
 
                     break;
@@ -108,7 +102,7 @@ public class CourseRegisteration {
                     } else {
 
                         for(int i=0; i<cour.size(); i++) {
-                            System.out.print("\t\t[" + (i) + "]\t");
+                            System.out.print("\t\t[" + (i) + "]");
                             System.out.println(cour.get(i));
                             System.out.println();
                         }
@@ -137,7 +131,7 @@ public class CourseRegisteration {
                     } else {
 
                         for(int i=0; i<cour.size(); i++) {
-                            System.out.print("\t\t[" + (i) + "]\t");
+                            System.out.print("\t\t[" + (i) + "]");
                             System.out.println(cour.get(i));
                             System.out.println();
                         }
@@ -686,7 +680,7 @@ public class CourseRegisteration {
 
             if(choice == 4) {
 
-                System.out.println("Thank you for choosing us!");
+                JOptionPane.showMessageDialog(null, "Thank you for choosing us!");
                 System.exit(4);
 
             }
